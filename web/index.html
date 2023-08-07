@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Visitor Counter</title>
+</head>
+<body>
+    <h1>Website Visitor Counter</h1>
+    <p id="visit-counter">Loading...</p>
+
+    <script>
+        const p = document.querySelector("#visit-counter");
+        const VISITORS_ENDPOINT = "https://3klidl8hw9.execute-api.us-east-1.amazonaws.com/test/counter";
+
+        const updateCounter = async () => {
+            try {
+                const response = await fetch(VISITORS_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                const visitors = await response.json();
+                p.textContent = `Visits: ${visitors.visits}`;
+            } catch (error) {
+                console.error(error);
+                p.textContent = "Failed to fetch visit count";
+            }
+        };
+
+        window.addEventListener("DOMContentLoaded", updateCounter);
+    </script>
+</body>
+</html>

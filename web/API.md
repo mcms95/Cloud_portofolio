@@ -33,7 +33,7 @@ response = requests.get('https://api.stackexchange.com/2.3/questions?order=desc&
 #retrieving json and creating a index for items -> crating a list
 questions_list = response.json()['items']
 
-#iterate over the list -> retrieving only the titles of each question
+# iterate over the list -> retrieving only the titles of each question
 for question in questions_list:
     if question['answer_count'] == 0:
         print(question['title'])
@@ -42,3 +42,24 @@ for question in questions_list:
     else:
         print("no unawser questions")
     print()
+
+
+API Gateway
+1- create REST API
+2- create resource -> we choose counter
+3- create method -> PUT -> we are changing db data
+4- deploy API -> we choose stage name "prod"
+5- in Stages we have the "Invoke URL"
+6- create policy to attach to a role so API Gateway can invoke lambda
+
+policy :
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:FUNCTION_NAME"
+        }
+    ]
+}
