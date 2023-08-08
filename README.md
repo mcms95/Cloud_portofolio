@@ -19,7 +19,8 @@
 1. Website: Code->GithubActions->S3->Cloudfront->Route53->Website
 2. Count: Website->API Gateway->Lambda->DynamoDb
 
-##  <p style="text-align: center;">Text_content</p>
+
+<p align="center"><strong>Project</strong></p>
 ![Alt text](web/img/setup.jpeg)
 
 Note: I registered nunocsilva.com in Route53.
