@@ -13,13 +13,13 @@
 
 ## Introduction
 
-* In this mini project we will host our Static website registered in Route53 hosted in S3 and have the origin in a Cloudfront distribution.
+* In this mini project we will host our Static website registered in Route53 in S3 and have the origin in a Cloudfront distribution.
 * Also we will have a API Gateway, that every time we go to the website, will invoke a Lambda that will increment and retrieve the total count of visitors. We will be displaying the views in the homepage. 
 
-Website: Code->GithubActions->S3->Cloudfront->Route53->Website
-Count: Website->API Gateway->Lambda->DynamoDb
+1. Website: Code->GithubActions->S3->Cloudfront->Route53->Website
+2. Count: Website->API Gateway->Lambda->DynamoDb
 
-Project:
+###Project:
 ![Alt text](web/img/setup.jpeg)
 
 Note: I registered nunocsilva.com in Route53.
