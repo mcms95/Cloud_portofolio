@@ -290,7 +290,7 @@ My first glance of the answer came in Python:
 import requests
 import json
 
-response = requests.get('https://coqh2vx627.execute-api.us-east-1.amazonaws.com/try1/counter')
+response = requests.get('API URL/counter')
 
 count = response.json()['body']
 print(count)
@@ -300,7 +300,7 @@ Since we can't inject Python in HTML i needed to convert this to JavaScript:
 ```
 async function fetchVisitCount() {
     try {
-        const response = await fetch('https://coqh2vx627.execute-api.us-east-1.amazonaws.com/try1/counter');
+        const response = await fetch('API URL/counter');
         const data = await response.json();
         const visitCount = JSON.parse(data.body).total_visits;
 
